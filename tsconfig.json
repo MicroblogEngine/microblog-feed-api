@@ -19,9 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
       "@/api/*": ["./src/app/api/*"],
-      "@/db/*": ["./src/app/db/*"]      
+      "@/db/*": ["./src/app/db/*"],
+      "@/*": ["./src/*"]      
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
