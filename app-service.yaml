@@ -7,7 +7,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
-    odePort: 9101
+  - port: 82
+    targetPort: 3000
   selector:
     env: sandbox
