@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: microblog-feed-api-deployment
   labels:
-    env: sandbox
+    app: microblog-feed-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      env: sandbox
+      app: microblog-feed-api
   template:
     metadata:
       labels:
-        env: sandbox
+        app: microblog-feed-api
     spec:
       containers:
       - name: microblog-feed-api-container
