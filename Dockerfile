@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-ARG NODE_VERSION=23.4
+ARG NODE_VERSION=23-bookworm
 ARG DEBIAN_CODENAME=slim
 
 ARG SOURCE_DIR=/home/jenkins
@@ -14,9 +14,7 @@ WORKDIR "$SOURCE_DIR"
 
 ENV NODE_ENV production
 
-RUN corepack enable && \
-  apt-get update -y && \
-  apt-get install -y openssl
+RUN corepack enable
 COPY . .
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm fetch --no-frozen-lockfile
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm install --no-frozen-lockfile
