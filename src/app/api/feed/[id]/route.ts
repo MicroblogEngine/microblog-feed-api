@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
-interface IdParam {
-  id: string
+type Props = {
+  params: Promise<{
+    id: string
+  }>
 }
 
-export async function GET(request: Request, { params }: { params: Awaited<IdParam> }) {
-  const id = (await params).id 
+export async function GET(request: Request, props: Props ) {
+  const id = (await props.params).id
   const post = await prisma.user.findUnique({
     where: {
       id,
@@ -20,8 +22,8 @@ export async function GET(request: Request, { params }: { params: Awaited<IdPara
   });
 };
 
-export async function PUT(request: Request, { params }: { params: Awaited<IdParam> }) {
-  const id = (await params).id 
+export async function PUT(request: Request, props: Props ) {
+  const id = (await props.params).id
   const data = await request.json();
 
   await prisma.user.update({
@@ -36,9 +38,8 @@ export async function PUT(request: Request, { params }: { params: Awaited<IdPara
   });        
 }
 
-export async function DELETE(request: Request, { params }: { params: Awaited<IdParam> }) {
-  const id = (await params).id 
-
+export async function DELETE(request: Request, props: Props) {
+  const id = (await props.params).id
   await prisma.user.delete({
     where: {
       id: id,
