@@ -14,7 +14,7 @@ WORKDIR "$SOURCE_DIR"
 
 ENV NODE_ENV production
 
-RUN corepack enable \
+RUN corepack enable && \
   apt-get install openssl
 COPY . .
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm fetch --no-frozen-lockfile
