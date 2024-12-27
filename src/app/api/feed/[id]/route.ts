@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 type Props = {
   params: Promise<{
-    id: string
+    id: number
   }>
 }
 
@@ -42,7 +42,7 @@ export async function DELETE(request: Request, props: Props) {
   const id = (await props.params).id
   await prisma.post.delete({
     where: {
-      id: id,
+      id,
     },
   })
 
