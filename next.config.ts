@@ -3,7 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  webpack: (config, { isServer }) => {
+  webpack: (config, {}) => {
     config.resolve.alias['@'] = path.join(__dirname, 'src', 'app');
     return config;
   },
