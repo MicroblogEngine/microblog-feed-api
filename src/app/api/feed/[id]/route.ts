@@ -11,7 +11,7 @@ type Props = {
 
 export async function GET(request: Request, props: Props ) {
   const id = (await props.params).id
-  const post = await prisma.user.findUnique({
+  const post = await prisma.post.findUnique({
     where: {
       id,
     },
@@ -26,7 +26,7 @@ export async function PUT(request: Request, props: Props ) {
   const id = (await props.params).id
   const data = await request.json();
 
-  await prisma.user.update({
+  await prisma.post.update({
     where: {
       id,
     },
@@ -40,7 +40,7 @@ export async function PUT(request: Request, props: Props ) {
 
 export async function DELETE(request: Request, props: Props) {
   const id = (await props.params).id
-  await prisma.user.delete({
+  await prisma.post.delete({
     where: {
       id: id,
     },
