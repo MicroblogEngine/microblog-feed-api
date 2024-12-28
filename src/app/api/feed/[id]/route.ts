@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 type Props = {
   params: Promise<{
-    id: number
+    id: string
   }>
 }
 
@@ -13,7 +13,7 @@ export async function GET(request: Request, props: Props ) {
   const id = (await props.params).id
   const post = await prisma.post.findUnique({
     where: {
-      id,
+      id: parseInt(id),
     },
   });
 
@@ -28,7 +28,7 @@ export async function PUT(request: Request, props: Props ) {
 
   await prisma.post.update({
     where: {
-      id,
+      id: parseInt(id),
     },
     data: data
   })
@@ -42,7 +42,7 @@ export async function DELETE(request: Request, props: Props) {
   const id = (await props.params).id
   await prisma.post.delete({
     where: {
-      id,
+      id: parseInt(id),
     },
   })
 
