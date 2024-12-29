@@ -20,8 +20,7 @@ RUN corepack enable && \
   apt-get update -y && \
   apt-get install -y openssl
 
-RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store && \
-  pnpm fetch --no-frozen-lockfile && \
+RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm fetch --no-frozen-lockfile && \
   pnpm install --no-frozen-lockfile && \
   pnpm run build
 
