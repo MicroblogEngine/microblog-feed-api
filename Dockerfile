@@ -12,15 +12,17 @@ ARG SOURCE_DIR
 
 WORKDIR "$SOURCE_DIR"
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 COPY . .
 
 RUN corepack enable && \
   apt-get update -y && \
-  apt-get install -y openssl && \
-  --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm fetch --no-frozen-lockfile && \
-  --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store pnpm install --no-frozen-lockfile && \
+  apt-get install -y openssl
+
+RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store && \
+  pnpm fetch --no-frozen-lockfile && \
+  pnpm install --no-frozen-lockfile && \
   pnpm run build
 
 FROM builder AS test
@@ -38,7 +40,7 @@ ARG SOURCE_DIR
 
 WORKDIR "$SOURCE_DIR"
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 RUN apt-get update -y && \
   apt-get install -y openssl && \
