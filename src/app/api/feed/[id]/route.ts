@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
 import { NextResponse } from "next/server";
 import { auth } from '@/auth';
-
-const prisma = new PrismaClient();
+import { prisma } from "@/helpers/prisma"
 
 type Props = {
   params?: Record<string, string | string[]> | undefined
