@@ -17,13 +17,14 @@ export const POST = auth(async(request) => {
   return new NextResponse(null, {
     status: 200,
   });    
-})
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}) as any;
 
-export const GET = async () => {
+export const GET = auth(async () => {
   const feed = await prisma.post.findMany();
 
   return new NextResponse(JSON.stringify(feed), {
     status: 200,
   });
-};
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}) as any;

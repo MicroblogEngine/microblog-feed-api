@@ -5,16 +5,16 @@ import { auth } from '@/auth';
 const prisma = new PrismaClient();
 
 type Props = {
-  params?: Record<string, string | string[]>
+  params?: Record<string, string | string[]> | undefined
 }
 
-export const GET = auth(async(request, props: Props ) => {
-  if (!props.params)
+export const GET = auth(async(req, ctx: Props ) => {
+  if (!ctx.params)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = props.params.id as string;
+  const id = ctx.params.id as string;
   const post = await prisma.post.findUnique({
     where: {
       id: parseInt(id),
@@ -24,16 +24,17 @@ export const GET = auth(async(request, props: Props ) => {
   return new NextResponse(JSON.stringify(post), {
     status: 200,
   });
-});
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}) as any;
 
-export async function PUT(request: Request, props: Props ) {
-  if (!props.params)
+export const PUT = auth(async(req: Request, ctx: Props ) => {
+  if (!ctx.params)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = props.params.id as string;
-  const data = await request.json();
+  const id = ctx.params.id as string;
+  const data = await req.json();
 
   await prisma.post.update({
     where: {
@@ -45,15 +46,16 @@ export async function PUT(request: Request, props: Props ) {
   return new NextResponse(null, {
     status: 200,
   });        
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}) as any;
 
-export async function DELETE(request: Request, props: Props) {
-  if (!props.params)
+export const DELETE = auth(async(req: Request, ctx: Props) => {
+  if (!ctx.params)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = props.params.id as string;
+  const id = ctx.params.id as string;
   await prisma.post.delete({
     where: {
       id: parseInt(id),
@@ -63,4 +65,5 @@ export async function DELETE(request: Request, props: Props) {
   return new NextResponse(null, {
     status: 200,
   });         
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}) as any;
