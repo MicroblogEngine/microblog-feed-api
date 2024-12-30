@@ -2,7 +2,6 @@ import { NextRequest } from "next/server";
 import { corsMiddleware } from "@/middlewares/cors.middleware";
 
 export function middleware(req:NextRequest) {
-
   return corsMiddleware(req);
 }
 

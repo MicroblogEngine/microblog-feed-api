@@ -17,8 +17,6 @@ export function corsMiddleware(req:NextRequest) {
     if (! origin)
       return res;
 
-    // if the origin is an allowed one,
-    // add it to the 'Access-Control-Allow-Origin' header
     if (allowedOrigins.includes(origin)) {
       res.headers.append('Access-Control-Allow-Origin', origin);
     }
