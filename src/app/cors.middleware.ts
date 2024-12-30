@@ -13,7 +13,7 @@ export function middleware(req:NextRequest) {
 
     // retrieve the HTTP "Origin" header 
     // from the incoming request
-    const origin = req.headers.get("origin");
+    const origin = req.headers.get("Origin");
     if (! origin)
       return res;
 
