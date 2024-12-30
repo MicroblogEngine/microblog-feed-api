@@ -7,7 +7,7 @@ const allowedOrigins = [
   'http://microblog-prometheus.default.svc.cluster.local', 
 ];
 
-export function middleware(req:NextRequest) {
+export function corsMiddleware(req:NextRequest) {
     // retrieve the current response
     const res = NextResponse.next()
 
@@ -32,9 +32,4 @@ export function middleware(req:NextRequest) {
     )
 
     return res
-}
-
-// specify the path regex to apply the middleware to
-export const config = {
-    matcher: '/api/:path*',
 }
