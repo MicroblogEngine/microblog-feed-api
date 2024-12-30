@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 // the list of all allowed origins
 const allowedOrigins = [
-  'http://app.microblog.training', 
+  'https://appmicroblogararog.loclx.io', 
+  'https://app.microblog.training', 
   'http://microblog-prometheus.default.svc.cluster.local', 
 ];
 
