@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/helpers/prisma"
 
 type Props = {
-  params?: { id: string }
+  params: { id: string }
 }
 
 export const GET = async(req: Request, props: Awaited<Props> ) => {
@@ -14,7 +14,7 @@ export const GET = async(req: Request, props: Awaited<Props> ) => {
   const id = (await props.params).id;
   const post = await prisma.post.findUnique({
     where: {
-      id: parseInt(id),
+      id: id,
     },
   });
 
@@ -34,7 +34,7 @@ export const PUT = async(req: Request, props: Awaited<Props>  ) => {
 
   await prisma.post.update({
     where: {
-      id: parseInt(id),
+      id: id,
     },
     data: data
   })
@@ -53,7 +53,7 @@ export const DELETE = async(req: Request, props: Awaited<Props>) => {
   const id = (await props.params).id;
   await prisma.post.delete({
     where: {
-      id: parseInt(id),
+      id: id,
     },
   })
 
