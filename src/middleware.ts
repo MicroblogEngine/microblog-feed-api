@@ -1,15 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from 'jose';
 
+/*
 const ignoredRoutes = [
   '/api/feed/health',
   '/api/feed/metrics',
 ]
+*/
 
 export async function middleware(req:NextRequest) {
   const res = NextResponse.next();
 
-  if(! ignoredRoutes.includes(req.url)) {
+  if(! req.url.includes('/health') && 
+    ! req.url.includes('/metrics')) {
     const authorization = req.headers.get('authorization');
     if(!authorization)
       return new NextResponse(null, { status: 401 });
