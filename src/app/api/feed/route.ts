@@ -1,12 +1,8 @@
-import { NextResponse } from "next/server";
-import { auth } from "@/auth"
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/helpers/prisma"
 
-export const POST = auth(async(request) => {
-  if (! request.auth)
-    return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
-
-  const data = await request.json();
+export const POST = async(req: NextRequest) => {
+  const data = await req.json();
 
   await prisma.post.create({
     data: data,
@@ -15,14 +11,12 @@ export const POST = auth(async(request) => {
   return new NextResponse(null, {
     status: 200,
   });    
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-}) as any;
+};
 
-export const GET = auth(async () => {
+export const GET = async () => {
   const feed = await prisma.post.findMany();
 
   return new NextResponse(JSON.stringify(feed), {
     status: 200,
   });
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-}) as any;
+};

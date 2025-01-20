@@ -1,11 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/helpers/prisma"
+import { RequestPathProps } from "@/types/request";
 
-type Props = {
-  params: Promise<{ id: string }>
-}
-
-export const GET = async(req: Request, props: Props ) => {
+export const GET = async(req: Request, props: RequestPathProps ) => {
   if (!props.params)
     return new NextResponse(null, {
       status: 400,
@@ -23,7 +20,7 @@ export const GET = async(req: Request, props: Props ) => {
   });
 };
 
-export const PUT = async(req: Request, props: Props  ) => {
+export const PUT = async(req: Request, props: RequestPathProps  ) => {
   if (!props.params)
     return new NextResponse(null, {
       status: 400,
@@ -44,7 +41,7 @@ export const PUT = async(req: Request, props: Props  ) => {
   });        
 };
 
-export const DELETE = async(req: Request, props: Props) => {
+export const DELETE = async(req: Request, props: RequestPathProps) => {
   if (!props.params)
     return new NextResponse(null, {
       status: 400,

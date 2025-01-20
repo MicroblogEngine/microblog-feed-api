@@ -19,7 +19,7 @@ model Post {
   updatedAt DateTime @updatedAt
   published Boolean  @default(false)
   text      String   @db.VarChar(400)
-  authorId  Int?
+  profileId String
 
   @@map("posts")
 }
