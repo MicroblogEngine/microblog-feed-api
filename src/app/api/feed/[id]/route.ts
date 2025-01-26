@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
+import { RequestPathProps } from "@ararog/microblog-types";
+
 import { prisma } from "@/helpers/prisma"
-import { RequestPathProps } from "@/types/request";
 
 export const GET = async(req: Request, props: RequestPathProps ) => {
   if (!props.params)
