@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {createServer, CallContext} from 'nice-grpc';
 import {
   DeepPartial, 
