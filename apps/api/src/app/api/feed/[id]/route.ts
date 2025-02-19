@@ -3,13 +3,13 @@ import { RequestPathProps } from "@ararog/microblog-types";
 import { prisma } from "@ararog/microblog-feed-api-db"
 
 
-export const GET = async(req: Request, props: RequestPathProps ) => {
-  if (!props.params)
+export const GET = async(req: Request, { params }: { params: RequestPathProps } ) => {
+  const { id } = await params;
+  if (!id)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = (await props.params).id;
   const post = await prisma.post.findUnique({
     where: {
       id: id,
@@ -21,13 +21,13 @@ export const GET = async(req: Request, props: RequestPathProps ) => {
   });
 };
 
-export const PUT = async(req: Request, props: RequestPathProps  ) => {
-  if (!props.params)
+export const PUT = async(req: Request, { params }: { params: RequestPathProps }) => {
+  const { id } = await params;
+  if (!id)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = (await props.params).id;
   const data = await req.json();
 
   await prisma.post.update({
@@ -42,13 +42,13 @@ export const PUT = async(req: Request, props: RequestPathProps  ) => {
   });        
 };
 
-export const DELETE = async(req: Request, props: RequestPathProps) => {
-  if (!props.params)
+export const DELETE = async(req: Request, { params }: { params: RequestPathProps }) => {
+  const { id } = await params;
+  if (!id)
     return new NextResponse(null, {
       status: 400,
     });
 
-  const id = (await props.params).id;
   await prisma.post.delete({
     where: {
       id: id,
