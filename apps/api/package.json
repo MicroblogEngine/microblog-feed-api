@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,7 +13,8 @@
   "dependencies": {
     "@ararog/microblog-feed-api-db": "workspace:*",
     "@ararog/microblog-next": "^0.0.3",
-    "@ararog/microblog-types": "^0.0.7",
+    "@ararog/microblog-types": "^0.0.22",
+    "@ararog/microblog-validation": "^0.0.15",
     "@grpc/grpc-js": "^1.12.5",
     "@grpc/proto-loader": "^0.7.13",
     "@opentelemetry/api-logs": "^0.57.1",

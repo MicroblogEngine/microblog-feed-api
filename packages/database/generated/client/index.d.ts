@@ -858,6 +858,7 @@ export namespace Prisma {
     updatedAt: Date | null
     published: boolean | null
     text: string | null
+    mediaId: string | null
     profileId: string | null
   }
 
@@ -867,6 +868,7 @@ export namespace Prisma {
     updatedAt: Date | null
     published: boolean | null
     text: string | null
+    mediaId: string | null
     profileId: string | null
   }
 
@@ -876,6 +878,7 @@ export namespace Prisma {
     updatedAt: number
     published: number
     text: number
+    mediaId: number
     profileId: number
     _all: number
   }
@@ -887,6 +890,7 @@ export namespace Prisma {
     updatedAt?: true
     published?: true
     text?: true
+    mediaId?: true
     profileId?: true
   }
 
@@ -896,6 +900,7 @@ export namespace Prisma {
     updatedAt?: true
     published?: true
     text?: true
+    mediaId?: true
     profileId?: true
   }
 
@@ -905,6 +910,7 @@ export namespace Prisma {
     updatedAt?: true
     published?: true
     text?: true
+    mediaId?: true
     profileId?: true
     _all?: true
   }
@@ -987,6 +993,7 @@ export namespace Prisma {
     updatedAt: Date
     published: boolean
     text: string
+    mediaId: string | null
     profileId: string
     _count: PostCountAggregateOutputType | null
     _min: PostMinAggregateOutputType | null
@@ -1013,6 +1020,7 @@ export namespace Prisma {
     updatedAt?: boolean
     published?: boolean
     text?: boolean
+    mediaId?: boolean
     profileId?: boolean
   }, ExtArgs["result"]["post"]>
 
@@ -1022,6 +1030,7 @@ export namespace Prisma {
     updatedAt?: boolean
     published?: boolean
     text?: boolean
+    mediaId?: boolean
     profileId?: boolean
   }, ExtArgs["result"]["post"]>
 
@@ -1031,6 +1040,7 @@ export namespace Prisma {
     updatedAt?: boolean
     published?: boolean
     text?: boolean
+    mediaId?: boolean
     profileId?: boolean
   }
 
@@ -1044,6 +1054,7 @@ export namespace Prisma {
       updatedAt: Date
       published: boolean
       text: string
+      mediaId: string | null
       profileId: string
     }, ExtArgs["result"]["post"]>
     composites: {}
@@ -1443,6 +1454,7 @@ export namespace Prisma {
     readonly updatedAt: FieldRef<"Post", 'DateTime'>
     readonly published: FieldRef<"Post", 'Boolean'>
     readonly text: FieldRef<"Post", 'String'>
+    readonly mediaId: FieldRef<"Post", 'String'>
     readonly profileId: FieldRef<"Post", 'String'>
   }
     
@@ -1754,6 +1766,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     published: 'published',
     text: 'text',
+    mediaId: 'mediaId',
     profileId: 'profileId'
   };
 
@@ -1774,6 +1787,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1842,6 +1863,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     published?: BoolFilter<"Post"> | boolean
     text?: StringFilter<"Post"> | string
+    mediaId?: StringNullableFilter<"Post"> | string | null
     profileId?: StringFilter<"Post"> | string
   }
 
@@ -1851,6 +1873,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     published?: SortOrder
     text?: SortOrder
+    mediaId?: SortOrderInput | SortOrder
     profileId?: SortOrder
   }
 
@@ -1863,6 +1886,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Post"> | Date | string
     published?: BoolFilter<"Post"> | boolean
     text?: StringFilter<"Post"> | string
+    mediaId?: StringNullableFilter<"Post"> | string | null
     profileId?: StringFilter<"Post"> | string
   }, "id">
 
@@ -1872,6 +1896,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     published?: SortOrder
     text?: SortOrder
+    mediaId?: SortOrderInput | SortOrder
     profileId?: SortOrder
     _count?: PostCountOrderByAggregateInput
     _max?: PostMaxOrderByAggregateInput
@@ -1887,6 +1912,7 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Post"> | Date | string
     published?: BoolWithAggregatesFilter<"Post"> | boolean
     text?: StringWithAggregatesFilter<"Post"> | string
+    mediaId?: StringNullableWithAggregatesFilter<"Post"> | string | null
     profileId?: StringWithAggregatesFilter<"Post"> | string
   }
 
@@ -1896,6 +1922,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     published?: boolean
     text: string
+    mediaId?: string | null
     profileId: string
   }
 
@@ -1905,6 +1932,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     published?: boolean
     text: string
+    mediaId?: string | null
     profileId: string
   }
 
@@ -1914,6 +1942,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     published?: BoolFieldUpdateOperationsInput | boolean
     text?: StringFieldUpdateOperationsInput | string
+    mediaId?: NullableStringFieldUpdateOperationsInput | string | null
     profileId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -1923,6 +1952,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     published?: BoolFieldUpdateOperationsInput | boolean
     text?: StringFieldUpdateOperationsInput | string
+    mediaId?: NullableStringFieldUpdateOperationsInput | string | null
     profileId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -1932,6 +1962,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     published?: boolean
     text: string
+    mediaId?: string | null
     profileId: string
   }
 
@@ -1941,6 +1972,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     published?: BoolFieldUpdateOperationsInput | boolean
     text?: StringFieldUpdateOperationsInput | string
+    mediaId?: NullableStringFieldUpdateOperationsInput | string | null
     profileId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -1950,6 +1982,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     published?: BoolFieldUpdateOperationsInput | boolean
     text?: StringFieldUpdateOperationsInput | string
+    mediaId?: NullableStringFieldUpdateOperationsInput | string | null
     profileId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -1984,12 +2017,33 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type PostCountOrderByAggregateInput = {
     id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     published?: SortOrder
     text?: SortOrder
+    mediaId?: SortOrder
     profileId?: SortOrder
   }
 
@@ -1999,6 +2053,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     published?: SortOrder
     text?: SortOrder
+    mediaId?: SortOrder
     profileId?: SortOrder
   }
 
@@ -2008,6 +2063,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     published?: SortOrder
     text?: SortOrder
+    mediaId?: SortOrder
     profileId?: SortOrder
   }
 
@@ -2051,6 +2107,24 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2061,6 +2135,10 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -2091,6 +2169,20 @@ export namespace Prisma {
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -2141,6 +2233,34 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
 

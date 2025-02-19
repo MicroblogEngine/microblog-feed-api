@@ -123,6 +123,7 @@ exports.Prisma.PostScalarFieldEnum = {
   updatedAt: 'updatedAt',
   published: 'published',
   text: 'text',
+  mediaId: 'mediaId',
   profileId: 'profileId'
 };
 
@@ -134,6 +135,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

@@ -20,7 +20,8 @@ model Post {
   updatedAt DateTime @updatedAt
   published Boolean  @default(false)
   text      String   @db.VarChar(400)
-  profileId String
+  mediaId   String?  @db.VarChar(40)
+  profileId String   @db.VarChar(40)
 
   @@map("posts")
 }
