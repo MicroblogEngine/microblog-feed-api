@@ -9,10 +9,11 @@ String dockerRegistry = "registry.local:5000"
 String infraJob = "Training/training%2F${appFamily}-${appName}-kube"
 String infraBranch = "main"
 dockerPipeline([
-    dockerRepository: dockerRepository,
-    dockerRegistry: dockerRegistry,
-    platform: "linux/amd64",
-    infra: [
-        job: "${infraJob}/${infraBranch}"
-    ]    
+  dockerRepository: dockerRepository,
+  dockerRegistry: dockerRegistry,
+  createEnv: true,
+  platform: "linux/amd64",
+  infra: [
+      job: "${infraJob}/${infraBranch}"
+  ]
 ])
