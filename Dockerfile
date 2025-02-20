@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 ARG NODE_VERSION=23-bookworm
 ARG DEBIAN_CODENAME=slim
-
 ARG SOURCE_DIR=/home/jenkins
 
 FROM node:${NODE_VERSION}-${DEBIAN_CODENAME} AS base
@@ -66,4 +65,5 @@ COPY --from=builder --chown=nextjs:nodejs ["${SOURCE_DIR}/apps/worker-kafka/dist
 COPY --from=builder --chown=nextjs:nodejs ["${SOURCE_DIR}/apps/worker-grpc/dist", "./worker-grpc"]
 
 CMD ["node ${ENTRYPOINT}"]
+#ENTRYPOINT ["tail", "-f", "/dev/null"]
 
